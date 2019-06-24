@@ -1,0 +1,46 @@
+{% extends "HiPage/wrapper.html" %}
+{% block content %}
+{% load staticfiles %}
+<div class="container">
+	<div class=header>
+		<div class=logo><a href="../">SCS</a></div>
+		<div class=bag>
+			<img src="{% static '/media/img/Shop.png' %}"/>
+			<div class=count>Товаров в корзине: 0</div>
+		</div>
+	</div>
+</div>
+	<div class=content>
+		<div class=text>
+		<h1>SPORT CLOTHES SHOP</h1>
+		<nav>
+			<ul class=menu>
+				<li><a href="men/">Мужчины</a></li>
+				<li><a href=#>Женщины</a></li>
+				<li><a href=#>Аксессуары</a></li>
+			</ul>
+			<img class=search src="{% static '/media/img/search.png' %}">
+		</nav>
+	</div>
+	</div>
+	<div class="container">
+	<div class=footer>
+		<div class=social>
+			<a href="https://vk.com/"><img src="{% static '/media/img/vk.png' %}" alt=vk></a>
+			<a href="https://www.instagram.com"><img src="{% static '/media/img/instagram.png' %}"><alt=instagram></a>
+		</div>
+		<div class=nav>
+			<ul class=info>
+				<li><a href = "/aboutus">О нас<a></li>
+				<li><a href = "/rules">Условия использования<a></li>
+				<li><a href = "/delivery">Доставка<a></li>
+				<li><a href = "/return-policy">Политика возврата<a></li>
+				<li><a href = "/support">Поддержка<a></li>
+			</ul>
+		</div>
+		<img id="cards" src="{% static '/media/img/Cards.png' %}"
+	</div>
+</div>
+
+
+{% endblock %}

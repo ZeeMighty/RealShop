@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Sport Clothes Shop</title>
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:200,500,600&amp;subset=cyrillic" rel="stylesheet">
+	{% load staticfiles %}
+	<link rel="stylesheet" type="text/css" href={% static '/css/men1.css' %}>
+	<script type = "text/javascript" src = "{% static 'js/jquery-3.3.1.min.js' %}">
+	</script>
+	<script type = "text/javascript" src = "{% static 'js/hover.js' %}">
+	</script>
+</head>
+<body>
+<header>
+  <div class=header>
+    <div class=logo><a href="http://127.0.0.1:8000">SCS</a></div>
+    <div class=bag>
+      <img src="{% static '/media/img/Shop.png' %}"/>
+      <div class=count>Товаров в корзине: 0</div>
+    </div>
+  </div>
+</header>
+<!--<div class=content>
+	<div class=string>
+		{% for good in SIZE %}
+			<div class=item style = "background: url({{ good.Photo.url}})">
+   		<ul class="sizes">
+				{% for i in good.Size.all %}
+				<li class = text><a href=# class = text>{{i.size}}</a></li>
+				{% endfor%}
+   		</ul>
+			<div class = name>
+				<p>{{good.Name}}</p>
+				<p>{{good.Price}}₽</p>
+				<a href = "{% url 'HiPage:adding_to_cart' good.id %}" class = buy id = "g{{good.id}}">КУПИТЬ!</a>
+			</div>
+  	</div>
+		{% endfor %}
+	</div>
+</div> -->
+</body>
+</html>

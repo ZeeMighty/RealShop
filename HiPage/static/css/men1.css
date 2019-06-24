@@ -1,0 +1,146 @@
+body {
+ margin: 0;
+ padding: 0;
+ background: #2a2a2a;
+ font-family: 'Montserrat', sans-serif;
+ color: #f4f4f4;
+}
+
+header {
+  background-color: #141414;
+}
+.header{
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 500;
+  margin: 0 auto;
+  height: 55px;
+  width: 1300px;
+}
+
+.bag {
+  display: flex;
+  margin-left: auto;
+  align-items: center;
+}
+
+div .count {
+  margin-left: 5px;
+}
+
+a {
+  color: #f4f4f4;
+  text-decoration: none;
+}
+
+li {
+  display: block;
+  margin: 0 10px 0 0;
+  padding: 0;
+}
+
+ul {
+  display: flex;
+  padding: 0px;
+}
+
+nav {
+  background: ;
+  height: 55px;
+  width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+.ul2 {
+  margin-left: auto;
+}
+
+.ul2 li {
+  margin: 0 0 0 10px;
+}
+
+.item {
+  position: relative;
+  margin-left: 30px;
+  width: 266px;
+  height: 336px;
+  display: inline-block;
+  z-index: 1;
+}
+
+.item:hover .text{
+  position: relative;
+  color: #fff;
+  z-index: 9999;
+  transition: all 0.5s ease;
+}
+.item:hover .name {
+  position: relative;
+  opacity: 1;
+  z-index: 999;
+  transition: all 0.5s ease;
+}
+
+.sizes li a{
+  position: relative;
+  left: 66.5px;
+  bottom: 155px;
+  color: #141414;
+  font-size: 12px;
+  font-weight: 600;
+  display: inline-block;
+  margin: 0 auto;
+}
+.sizes {
+  margin-bottom: -100px;
+  position: relative;
+  right: 68px;
+  bottom: 5px;
+  width: inherit;
+  height: inherit;
+  margin-left: 68px;
+  margin-top: 5px;
+  align-items: center;
+  background-color: rgba(42,42,42,0.0);
+}
+
+.string {
+  position: relative;
+  display: inline-block;
+  align-items: center;
+}
+
+
+.content {
+  position: relative;
+  width: 1290px;
+  margin: 0 auto;
+}
+
+.name {
+  position: relative;
+  padding-top: 30px;
+  bottom: 241px;
+  width: 266px;
+  height: 307px;
+  color: white;
+  opacity: 0;
+  background-color: rgba(42,42,42,0.75);
+  text-align: center;
+  z-index: 999;
+}
+
+.name:hover {
+  position: relative;
+  opacity: 1;
+  z-index: 999;
+  transition: all 0.5s ease;
+}
+
+.buy {
+  position: relative;
+  top: 190px;
+}
