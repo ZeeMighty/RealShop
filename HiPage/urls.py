@@ -20,4 +20,6 @@ urlpatterns = [
     url(r'^add_to_cart/(?P<good_id>[0-9]+)/$', views.Adding.as_view(), name = 'adding_to_cart'),
 
     url(r'cart/', views.Cart, name = 'cart'),
+
+    url(r'delete/(?P<good_id>[0-9]+)/$', views.delete, name = 'deleting'),
 ]

@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class Good(models.Model):
     Name = models.CharField(max_length = 150)
@@ -30,9 +31,14 @@ class Size(models.Model):
 class Good_Get(models.Model):
     Size = models.ForeignKey(Size, on_delete=models.CASCADE, null=True)
     Name = models.CharField(max_length = 150, default = " ")
-    Available = models.CharField(max_length = 50, default = " ")
+#    Available = models.CharField(max_length = 50, default = " ")
     Photo = models.ImageField(default = " ")
-    Price = models.IntegerField(default = '0')
+    Price = models.CharField(max_length = 10, default = '0')
 
     def __str__(self):
         return str(self.Size)
+
+class User(User):
+    class Meta:
+        ordering = ('username',)
+        proxy = True

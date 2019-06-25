@@ -20,13 +20,21 @@ header {
 }
 
 .bag {
-  display: flex;
+  display: block;
   margin-left: auto;
   align-items: center;
 }
 
+.bag_logo {
+  position: relative;
+  top: 7px;
+}
+
 div .count {
-  margin-left: 5px;
+  margin-left: 15px;
+  position: relative;
+  left: 15px;
+  bottom: 15px;
 }
 
 a {

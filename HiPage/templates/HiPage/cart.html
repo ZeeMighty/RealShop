@@ -21,6 +21,12 @@
     </div>
   </div>
 </header>
+{% for g in good %}
+<div>{{ g.Name }}</div>
+<div>{{ g.Price }} ₽</div>
+<div>{{ g.Size }}</div>
+<a href="{% url 'HiPage:deleting' g.id %}">Удалить</a>
+{% endfor %}
 <!--<div class=content>
 	<div class=string>
 		{% for good in SIZE %}
