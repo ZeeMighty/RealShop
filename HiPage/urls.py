@@ -22,4 +22,7 @@ urlpatterns = [
     url(r'cart/', views.Cart, name = 'cart'),
 
     url(r'delete/(?P<good_id>[0-9]+)/$', views.delete, name = 'deleting'),
+
+    url(r'login/', views.Login, name = 'login'),
+    url(r'logout/', views.Logout, name = 'logout'),
 ]

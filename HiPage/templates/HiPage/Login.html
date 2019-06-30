@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Sport Clothes Shop</title>
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:200,500,600&amp;subset=cyrillic" rel="stylesheet">
+	{% load staticfiles %}
+	<link rel="stylesheet" type="text/css" href="{% static '/css/men2.css' %}">
+	<script type = "text/javascript" src = "{% static 'js/jquery-3.3.1.min.js' %}">
+	</script>
+	<script type = "text/javascript" src = "{% static 'js/hover.js' %}">
+	</script>
+</head>
+<body>
+<header>
+  <div class=header>
+    <div class=logo><a href="http://127.0.0.1:8000">SCS</a></div>
+    <div class=bag>
+			<a href = "/cart">
+      <img class = bag_logo src="{% static '/media/img/Shop.png' %}"/>
+      <div class=count>Товаров в корзине: 0</div>
+			<a>
+    </div>
+  </div>
+</header>
+  <nav>
+    <ul class="ul1">
+      <li><a href="http://127.0.0.1:8000">Главная</a></li>
+      <li>></li>
+      <li><a href="">Вход</a></li>
+    </ul>
+  </nav>
+<div>
+<form action = "/login/" method="post">
+  {% csrf_token %}
+  {{ csrf_input }}
+  <label for = "username">Имя</label><br>
+  <input type = "text" id = "username" name = "username"><br>
+  <label for = "password">Пароль</label><br>
+  <input type = "password" name = "password" id = "password"><br>
+  {% if login_error %}
+    <label class = "error">{{ login_error }}</label><br>
+  {% endif %}
+  <input type = "submit" value = "Войти">
+  </form>
+</div>
+
+</body>
+</html>

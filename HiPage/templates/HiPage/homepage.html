@@ -9,6 +9,13 @@
 			<img class = bag_logo src="{% static '/media/img/Shop.png' %}"/>
 			<div class=count>Товаров в корзине: 0</div>
 			<a>
+				<div class = login>
+				{% if username %}
+					<a href = "/logout">Выйти ({{ username }})</a>
+				{% else %}
+					<a href = "/login">Войти</a>
+				{% endif %}
+				</div>
 		</div>
 	</div>
 </div>

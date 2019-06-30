@@ -1,10 +1,11 @@
 from django import forms
-from .models import Good_Get, Good
+from .models import Good_Get, Good, UserGood
 from HiPage import views
 
 class GoodGet(forms.ModelForm):
     class Meta:
-        model = Good_Get
+#        model = Good_Get
+        model = UserGood
         Size = forms.ModelChoiceField(queryset = Good.objects.all())
         fields = '__all__'
 

@@ -1,14 +1,18 @@
 from django.http import HttpResponse
 from django.template import loader
-from HiPage.models import Good, Size, Good_Get
+from HiPage.models import Good, Size, Good_Get, UserGood
 from django.shortcuts import get_object_or_404, render, redirect
 from django.http import HttpResponseRedirect
 from django.views import generic
 from .forms import GoodGet
 from django.views.generic import View
+from django.contrib import auth
+from django.views.decorators import csrf
+#from django.views.decorators.csrf import csrf_protect
+from django.contrib.auth import authenticate, login
 
 def IndexView(request):
-    return render(request, 'HiPage/homepage.html')
+    return render(request, 'HiPage/homepage.html', {'username': auth.get_user(request).username})
 
 def Men(request):
     good = Good.objects.all()
@@ -31,12 +35,39 @@ class Adding(View):
         return render(request, 'HiPage/add_to_cart.html', context = {'form': form, 'good': good})
 
 def Cart(request):
-    goods = Good_Get.objects.all()
+#    goods = Good_Get.objects.all()
+    goods = UserGood.objects.all()
     return render(request, 'HiPage/cart.html', context = {'good': goods})
 
 def delete(request, good_id):
-        Good_Get.objects.get(id = good_id).delete()
+        #Good_Get.objects.get(id = good_id).delete()
+        UserGood.objects.get(id = good_id).delete()
         return HttpResponseRedirect("/cart")
+
+
+
+def Login(request):
+    args = {}
+    if request.POST:
+        username = request.POST.get('username', '')
+        password = request.POST.get('password', '')
+        user = auth.authenticate(username = username, password = password)
+        print(user, username, password)
+        if user is not None:
+            auth.login(request, user)
+            return redirect('/')
+        else:
+            args['login_error'] = "Пользователь не найден"
+            return render(request, 'HiPage/Login.html', args)
+
+    else:
+        return render(request, 'HiPage/Login.html', args)
+
+def Logout(request):
+    auth.logout(request)
+    return redirect('/')
+
+
 
 def AboutUs(request):
     return render(request, 'HiPage/AboutUs.html')

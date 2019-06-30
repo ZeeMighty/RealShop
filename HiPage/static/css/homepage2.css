@@ -1,4 +1,14 @@
 {% load staticfiles %}
+
+html {
+   overflow: hidden;
+ }
+
+.login {
+  position: relative;
+  left: 190px;
+  bottom: 22px;
+}
 body {
  margin: 0;
  padding: 0;
@@ -28,14 +38,14 @@ body {
 
 .bag_logo {
   position: relative;
-  top: 7px;
+  top: 15px;
 }
 
 div .count {
   margin-left: 15px;
   position: relative;
   left: 15px;
-  bottom: 15px;
+  bottom: 7px;
 }
 .content {
   background-image: url(img/bg.png);

@@ -1,5 +1,4 @@
 from django.db import models
-from django.contrib.auth.models import User
 
 class Good(models.Model):
     Name = models.CharField(max_length = 150)
@@ -38,7 +37,7 @@ class Good_Get(models.Model):
     def __str__(self):
         return str(self.Size)
 
-class User(User):
+class UserGood(Good_Get):
     class Meta:
-        ordering = ('username',)
+        ordering = ('Size', 'Name', 'Photo', 'Price')
         proxy = True
