@@ -25,4 +25,5 @@ urlpatterns = [
 
     url(r'login/', views.Login, name = 'login'),
     url(r'logout/', views.Logout, name = 'logout'),
+    url(r'registration/', views.Reg, name = 'reg'),
 ]

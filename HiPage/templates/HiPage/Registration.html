@@ -15,36 +15,21 @@
 <header>
   <div class=header>
     <div class=logo><a href="http://127.0.0.1:8000">SCS</a></div>
-    <div class=bag>
-			<a href = "/cart">
-      <img class = bag_logo src="{% static '/media/img/Shop.png' %}"/>
-      <div class=count>Товаров в корзине: 0</div>
-			<a>
-    </div>
   </div>
 </header>
   <nav>
     <ul class="ul1">
       <li><a href="http://127.0.0.1:8000">Главная</a></li>
       <li>></li>
-      <li><a href="">Вход</a></li>
+      <li><a href="">Регистрация</a></li>
     </ul>
   </nav>
-<div>
-<form action = "/login/" method="post">
-  {% csrf_token %}
-  {{ csrf_input }}
-  <label for = "email">Имя</label><br>
-  <input type = "text" id = "username" name = "email"><br>
-  <label for = "password">Пароль</label><br>
-  <input type = "password" name = "password" id = "password"><br>
-  {% if login_error %}
-    <label class = "error">{{ login_error }}</label><br>
-  {% endif %}
-  <input type = "submit" value = "Войти">
-	<div><a href = "/registration/">Регистрация</a></div>
-  </form>
-</div>
-
+  <div>
+    <form action = "/registration/" method = post>
+      {% csrf_token %}
+      {{ form }}
+      <input type = submit value = "Зарегистрироваться">
+      </form>
+  </div>
 </body>
 </html>

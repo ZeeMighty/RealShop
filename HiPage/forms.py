@@ -1,5 +1,6 @@
 from django import forms
-from .models import Good_Get, Good, UserGood
+from django.contrib.auth.forms import UserCreationForm
+from .models import Good_Get, Good, UserGood, User
 from HiPage import views
 
 class GoodGet(forms.ModelForm):
@@ -26,3 +27,14 @@ class GoodGet(forms.ModelForm):
             for good in obj:
                 good_sizes = good.Size.all()
             self.fields['Size'].queryset = good_sizes
+
+class RegisterForm(UserCreationForm):
+    email = forms.EmailField(label = "Email")
+
+    class Meta:
+        model = User
+        fields = ("username", "email")
+
+    def __init__(self, *args, **kwargs):
+        super(UserCreationForm, self).__init__(*args, **kwargs)
+        self.fields['password1'].help_text = ''

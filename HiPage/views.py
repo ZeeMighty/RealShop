@@ -4,12 +4,11 @@ from HiPage.models import Good, Size, Good_Get, UserGood
 from django.shortcuts import get_object_or_404, render, redirect
 from django.http import HttpResponseRedirect
 from django.views import generic
-from .forms import GoodGet
+from .forms import GoodGet, RegisterForm
 from django.views.generic import View
 from django.contrib import auth
-from django.views.decorators import csrf
-#from django.views.decorators.csrf import csrf_protect
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.forms import UserCreationForm
 
 def IndexView(request):
     return render(request, 'HiPage/homepage.html', {'username': auth.get_user(request).username})
@@ -44,15 +43,26 @@ def delete(request, good_id):
         UserGood.objects.get(id = good_id).delete()
         return HttpResponseRedirect("/cart")
 
-
+def Reg(request):
+    args = {}
+    args['form'] = RegisterForm()
+    if request.POST:
+        new_user_form = RegisterForm(request.POST)
+        if new_user_form.is_valid():
+            new_user_form.save()
+            new_user = new_user_form.save()#auth.authenticate(email = new_user_form.cleaned_data['username'], password = new_user_form.cleaned_data['password2'])
+            auth.login(request, new_user)
+            return redirect('/')
+        else:
+            args['form'] = new_user_form
+    return render(request, 'HiPage/Registration.html', args)
 
 def Login(request):
     args = {}
     if request.POST:
-        username = request.POST.get('username', '')
+        username = request.POST.get('email', '')
         password = request.POST.get('password', '')
-        user = auth.authenticate(username = username, password = password)
-        print(user, username, password)
+        user = auth.authenticate(email = username, password = password)
         if user is not None:
             auth.login(request, user)
             return redirect('/')
@@ -66,8 +76,6 @@ def Login(request):
 def Logout(request):
     auth.logout(request)
     return redirect('/')
-
-
 
 def AboutUs(request):
     return render(request, 'HiPage/AboutUs.html')

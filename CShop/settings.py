@@ -29,7 +29,7 @@ SECRET_KEY = 'keba$$5y(wipp94-v4*(6%*_0w2wb$5h8i$6%#3oz6w4@*@l=t'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+AUTH_USER_MODEL = 'HiPage.User'
 
 # Application definition
 
@@ -105,6 +105,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+#AUTHENTICATION_BACKENDS = (
+#    'yourproject.email-auth.EmailBackend',
+#    )
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
